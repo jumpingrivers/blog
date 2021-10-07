@@ -1,0 +1,61 @@
+---
+title: "r2d3 with Scooby-Doo"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library("dplyr")
+library("tidyr")
+library("stringr")
+library("lubridate")
+
+# load data from tidytuesday
+tuesdata = tidytuesdayR::tt_load(2021, week = 29)
+scoobydoo = tuesdata$scoobydoo
+
+# wrangling data into nice shape
+monsters_caught = scoobydoo %>%
+  select(date_aired, starts_with("caught")) %>%
+  mutate(across(starts_with("caught"), ~ as.logical(.))) %>%
+  pivot_longer(cols = caught_fred:caught_not,
+               names_to = "character",
+               values_to = "monsters_caught") %>%
+  drop_na()  %>%
+  filter(!(character %in% c("caught_not", "caught_other"))) %>%
+  mutate(year = year(date_aired), .keep = "unused") %>%
+  group_by(character, year) %>%
+  summarise(caught = sum(monsters_caught),
+            .groups = "drop_last") %>%
+  mutate(
+    cumulative_caught = cumsum(caught),
+    character = str_remove(character, "caught_"),
+    character = str_to_title(character),
+    character = recode(character, "Daphnie" = "Daphne")
+  )
+```
+
+```{r}
+# setting up colors for each character
+character_hex = tribble(
+  ~ character, ~ color,
+  "Fred", "#76a2ca",
+  "Velma", "#cd7e05",
+  "Scooby", "#966a00",
+  "Shaggy", "#b2bb1b",
+  "Daphne", "#7c68ae"
+)
+
+monsters_caught = monsters_caught %>% 
+  inner_join(character_hex, by = "character")
+```
+
+```{r}
+library("r2d3")
+
+r2d3(data = monsters_caught,
+     script = "scoobydoo.js",
+     d3_version = "5")
+```
+
