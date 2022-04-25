@@ -49,3 +49,7 @@ fullmodel = MASS::polr(formula = as.factor(rating) ~
   chain, data = estDepMerged)
 summary(fullModel)
 ```
+
+## About
+
+This work was initially carried out by [James Salsbury](http://maths.dept.shef.ac.uk/maths/staff_info_987.html) as part of his MMathStat project at Newcastle University. James is now a PhD student at the University of Sheffield looking at Bayesian experimental design for adaptive clinical trials.
