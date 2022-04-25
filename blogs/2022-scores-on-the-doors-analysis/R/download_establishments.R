@@ -1,6 +1,6 @@
-library(httr)
-library(jsonlite)
-library(dplyr)
+library("httr")
+library("jsonlite")
+library("dplyr")
 
 get_local_authority = function(id) {
   #Download by local authority
@@ -68,13 +68,12 @@ get_english_authorities = function() {
 }
 
 download_establishments = function(ids = 1:500) {
-  ids = 1:2
   # Downloading all the establishments - across the UK
   All_data = purrr::map_dfr(ids, get_local_authority)
 
   auth_names = get_english_authorities()
-  #We filter by establishments only in England
-  #Also use regular expressions to extract postcodes
+  # We filter by establishments only in England
+   #Also use regular expressions to extract postcodes
   establishments = All_data %>%
     dplyr::filter(.data$authorityName %in% auth_names)  %>%
     dplyr::mutate(postcodeArea = stringr::str_extract(.data$postcode, "[A-Z]+"),
@@ -84,8 +83,5 @@ download_establishments = function(ids = 1:500) {
   return(establishments)
 }
 
-#Save the output in your environment
 establishments = download_establishments()
-
-#Save the data set to your files
-#saveRDS(establishments, file = "establishments.rds")
+# saveRDS(establishments, file = "establishments.rds")
