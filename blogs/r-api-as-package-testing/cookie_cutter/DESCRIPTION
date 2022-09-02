@@ -1,0 +1,27 @@
+Package: cookieCutter
+Title: A template for API as a package
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jamie", "Owen", , "jamie@jumpingrivers.com", role = c("aut", "cre"))
+Description: This package is an example of how a plumber API as a package might look
+    and could potentially be used as a starting point for future API projects. It was predominantly
+    created for the Jumping Rivers API as a package structure blog post.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Config/testthat/edition: 3
+Imports: 
+    jsonlite,
+    plumber,
+    purrr,
+    stringr,
+    utils
+Suggests:
+    callr,
+    httpuv,
+    httr,
+    glue,
+    testthat,
+    withr,
+    tibble
