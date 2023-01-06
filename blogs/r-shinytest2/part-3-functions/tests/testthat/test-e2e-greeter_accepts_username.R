@@ -1,6 +1,6 @@
 # ./tests/testthat/test-e2e-greeter_accepts_username.R
 initialise_test_app = function(name) {
-  shiny_app = run()
+  shiny_app = shinyGreeter::run()
   app = shinytest2::AppDriver$new(shiny_app, name = name)
   app$set_window_size(width = 1619, height = 970)
 

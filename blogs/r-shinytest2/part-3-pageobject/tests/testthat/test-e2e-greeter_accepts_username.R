@@ -6,7 +6,7 @@ GreeterApp = R6::R6Class(
     width = 1619,
     height = 970,
     initialize = function(name) {
-      shiny_app = run()
+      shiny_app = shinyGreeter::run()
       super$initialize(shiny_app, name = name)
       self$set_window_size(width = self$width, height = self$height)
     },
