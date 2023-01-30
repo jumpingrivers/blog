@@ -1,0 +1,78 @@
+---
+title: "Reporting on the bill length of penguins"
+author: "Myles Mitchell & Parisa Gregg"
+date: "14 December 2022"
+format: html
+jupyter: python3
+---
+
+## Abstract
+
+Prepare yourself for a life-changing article about penguins...
+
+## Introduction
+
+[Penguins](https://en.wikipedia.org/wiki/Penguin) are a family
+(**Spheniscidae**) of aquatic flightless
+[birds](https://en.wikipedia.org/wiki/Bird) that live primarily in the
+[Southern Hemisphere](https://en.wikipedia.org/wiki/Southern_Hemisphere).
+Their diet consists of:
+
+- Krill
+- Fish
+- Squid
+- More fish
+
+There are 18 species of penguin, including:
+
+1. Macaroni penguin (*Eudyptes chrysolophus*)
+2. Chinstrap penguin (*Pygoscelis antarcticus*)
+3. Gentoo penguin (*Pygoscelis papua*)
+
+## Methods
+
+To determine whether a higher body mass implies a longer bill, we loaded a
+penguins dataset using pandas:
+
+```{python}
+import pandas as pd
+
+data = pd.read_csv(
+    'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'
+)
+data.head()
+```
+
+## Results
+
+The figure below shows the bill length plotted as a function of the body mass
+for three species across a 3-year period.
+
+```{python}
+#| echo: false
+#| fig-cap: "Bill length as a function of body mass"
+#| fig-width: 8
+import plotly.express as px
+
+px.scatter(
+    data,
+    x="body_mass_g",
+    y="bill_length_mm",
+    color="species",
+    facet_col="year",
+    trendline="ols",
+)
+```
+
+```{python}
+#| echo: false
+from IPython.display import display, Markdown
+
+avg_length = data['bill_length_mm'].mean()
+display(Markdown(
+f"""
+According to our data, the average bill length is
+{round(avg_length, 1)} mm.
+"""
+))
+```
