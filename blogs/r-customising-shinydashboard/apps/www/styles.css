@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+.irs--shiny .irs-bar, .irs--shiny .irs-single {
+  border: #4898a8;
+  background: #4898a8;
+}
+
+body, h2, .main-header .logo {
+  font-family: 'Prompt', sans-serif;
+}
