@@ -26,12 +26,12 @@ my_wordcloud = wordcloud2(
                   nrow(word_counts)))
 
 ui = fluidPage(
-  wordcloud2Output("wordcloud"),
   tags$script(HTML(
     "$(document).on('click', '#canvas', function() {
-      word = document.getElementById('wcLabel').textContent;
+      word = $('#wcLabel').text();
       Shiny.onInputChange('clicked_word', word);
     });")),
+  wordcloud2Output("wordcloud"),
   DT::DTOutput("filtered_tbl")
 )
 
