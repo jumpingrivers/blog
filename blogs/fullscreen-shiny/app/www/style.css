@@ -1,0 +1,18 @@
+h2 {
+    margin-top: 5px;
+}
+
+.plot-container {
+    height: 190px;
+    cursor: pointer;
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+
+.plot-container:fullscreen {
+    cursor: default;
+}
+
+.plot-container:last-child {
+    margin-bottom: 5px;
+}
