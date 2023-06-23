@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     'use strict';
 
     // If fullscreen is not supported jump right out

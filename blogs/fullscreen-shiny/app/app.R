@@ -1,7 +1,7 @@
 library("shiny")
 library("tidyverse")
 library("glue")
-#options(shiny.launch.browser = .rs.invokeShinyWindowExternal)
+options(shiny.launch.browser = .rs.invokeShinyWindowExternal)
 
 
 ui = fluidPage(
