@@ -1,0 +1,143 @@
+---
+title: "UFO Sightings"
+subtitle: "`r params$state`, `r params$year`"
+format: 
+  revealjs:
+    theme: simple
+params:
+  state: "Idaho"
+  year: 2022
+---
+
+```{r}
+library("dplyr")
+library("ggplot2")
+library("tidytext")
+library("ggwordcloud")
+
+ufo_sightings = readr::read_csv("ufo_sightings.csv")
+```
+
+```{r}
+ufo_subset = ufo_sightings %>% 
+  dplyr::filter(
+    year == params$year,
+    state_name == params$state
+  )
+```
+
+## Summary
+
+<br>
+
+```{r}
+total = ufo_subset %>% 
+  count() %>% 
+  pull(n)
+
+ranks = ufo_sightings %>% 
+  filter(year == params$year) %>% 
+  count(state_name, sort = TRUE) %>% 
+  tidyr::drop_na()
+
+rank = which(ranks$state_name == params$state)
+
+year_comparison = ufo_sightings %>%
+  filter(state_name == params$state) %>%
+  count(year, sort = TRUE) 
+
+year_diff = year_comparison %>% 
+  mutate(avg = mean(n),
+         diff = n - avg,
+         text = case_when(
+           diff < 0 ~ "less than",
+           diff > 0 ~ "more than",
+           diff == 0 ~ "around"
+         )) %>% 
+  filter(year == params$year) %>% 
+  pull(text)
+
+g = year_comparison %>%
+  ggplot(aes(
+    x = year,
+    y = n,
+    fill = year == params$year
+  )) +
+  geom_col() +
+  scale_fill_manual(values = c(`FALSE` = "gray",
+                               `TRUE` = "#c74a4a")) +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "none") +
+  labs(y = "", x = "")
+```
+
+
+The total number of UFO sightings in `r params$state` in `r params$year` was **`r total`**.
+
+`r params$state` ranks **`r rank`** out of `r nrow(ranks)` for US states in `r params$year`.
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+Compared to other years, `r params$year` has **`r year_diff`** average sightings for `r params$state`.
+
+:::
+
+::: {.column width="60%"}
+```{r}
+g
+```
+:::
+
+::::
+
+::: {.footer .topic-footer}
+`r glue::glue("{params$state}, {params$year}")`
+:::
+
+
+## Most common words
+
+```{r}
+word_counts = unnest_tokens(
+  tbl = ufo_subset,
+  output = word,
+  input = summary
+) %>% 
+  anti_join(stop_words,
+            by = "word") %>% 
+  count(word)
+
+ufo_wordcloud = word_counts %>%
+  slice_max(n, n = 40) %>%
+  ggplot(aes(label = word,
+             size = n,
+             colour = word)) +
+  geom_text_wordcloud() +
+  scale_size_area(max_size = 15) +
+  viridis::scale_color_viridis(discrete = TRUE, direction = -1) +
+  theme_void()
+
+ufo_wordcloud
+```
+
+::: {.footer .topic-footer}
+`r glue::glue("{params$state}, {params$year}")`
+:::
+
+## Sighting duration
+
+```{r}
+ufo_subset %>%
+  ggplot(aes(x = duration_seconds)) +
+  geom_histogram(fill = "#c74a4a") +
+  labs(x = "Duration (seconds)", y = "") +
+  scale_x_continuous(labels = scales::comma_format()) +
+  theme_minimal()
+```
+
+::: {.footer .topic-footer}
+`r glue::glue("{params$state}, {params$year}")`
+:::
