@@ -3,26 +3,30 @@ library(tidyverse)
 library(rstan)
 library(tidybayes)
 library(splines)
-options(mc.cores = 4)
+options(mc.cores = 4) ## run chains in parallel using 4 cores
+
 ufo_sightings = readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-06-20/ufo_sightings.csv')
-# Helper fns ----
+
 
 # Wrangling ----
 ## Grab sightings per year
 
 sights_per_year = ufo_sightings %>%
-  dplyr::filter(country_code == "GB") %>% 
-  dplyr::mutate(year_of_sighting = lubridate::year(reported_date_time)) %>%
-  dplyr::summarise(sightings_per_year = length(year_of_sighting), .by = "year_of_sighting") %>%
+  filter(country_code == "GB") %>% 
+  mutate(year_of_sighting = year(reported_date_time)) %>%
+  summarise(
+    sightings_per_year = length(year_of_sighting),
+            .by = "year_of_sighting"
+    ) %>%
   arrange(year_of_sighting)
 
 year_range = range(sights_per_year$year_of_sighting)
 
-all_years = tibble::tibble(year = min(year_range):max(year_range))
+all_years = tibble(year = min(year_range):max(year_range))
 
 sights_per_year = sights_per_year %>%
-  dplyr::right_join(all_years, by = c("year_of_sighting" = "year")) %>%
-  dplyr::mutate(sightings_per_year = dplyr::if_else(is.na(sightings_per_year),
+  right_join(all_years, by = c("year_of_sighting" = "year")) %>%
+  mutate(sightings_per_year = if_else(is.na(sightings_per_year),
                                                     0,
                                                     sightings_per_year))
 
@@ -38,10 +42,13 @@ sights_per_year %>%
 
 B = bs(sights_per_year$year_of_sighting,
        knots = seq(from = year_range[1],
-                 to = year_range[2],
-                 length = 10),
+                   to = year_range[2],
+                   length = 10),
        degree = 3,
        intercept = TRUE)
+
+# Fit model in Stan ----
+
 K = ncol(B)
 stan_data = list(
   N = nrow(sights_per_year),
@@ -57,6 +64,12 @@ stan_data = list(
   s_phi = 1
   )
 
+target_iter = 5000
+warmup = 1000
+thin = 10
+
+total_iter = warmup + thin * target_iter
+
 fit = stan(
   "nbin_reg.stan",
   data = stan_data,
@@ -65,6 +78,9 @@ fit = stan(
   warmup = warmup,
   thin = thin
 )
+
+# Construct posterior summaries ----
+
 ## View numerical summary
 fit
 
@@ -74,15 +90,15 @@ tidy_fit %>%
   head()
 
 sights_per_year = sights_per_year %>%
-  dplyr::mutate(condition = 1:nrow(sights_per_year))
+  mutate(condition = 1:nrow(sights_per_year))
 
 tidy_fit = tidy_fit %>%
-  dplyr::left_join(sights_per_year, by = "condition") 
+  left_join(sights_per_year, by = "condition") 
 ## Which years have the largest posterior mean estimate
 tidy_fit %>%
   reframe(mean = mean(y_pred),
           year = year_of_sighting) %>%
-  dplyr::distinct() %>%
+  distinct() %>%
   arrange(-mean) %>%
   head(5)
 ## Which spline coeffs are the most important?
@@ -115,8 +131,8 @@ resids = tidy_fit %>%
           sightings_per_year = sightings_per_year,
           year_of_sighting = year_of_sighting,
           .by = "condition") %>%
-  dplyr::distinct() %>%
-  dplyr::mutate(residual = (sightings_per_year - mean) / sd)
+  distinct() %>%
+  mutate(residual = (sightings_per_year - mean) / sd)
 
 resids %>%
   ggplot(aes(x = year_of_sighting, y = residual)) +
