@@ -60,7 +60,7 @@ stan_data = list(
   s_beta = rep(1, K),
   m_phi = 0,
   s_phi = 1
-  )
+)
 
 target_iter = 5000
 warmup = 1000
