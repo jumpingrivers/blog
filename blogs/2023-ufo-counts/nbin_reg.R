@@ -26,9 +26,7 @@ all_years = tibble(year = min(year_range):max(year_range))
 
 sights_per_year = sights_per_year %>%
   right_join(all_years, by = c("year_of_sighting" = "year")) %>%
-  mutate(sightings_per_year = if_else(is.na(sightings_per_year),
-                                                    0,
-                                                    sightings_per_year))
+  mutate(sightings_per_year = replace_na(sightings_per_year, 0))
 
 sights_per_year %>%
   ggplot() +
