@@ -16,8 +16,8 @@ sights_per_year = ufo_sightings %>%
   mutate(year_of_sighting = year(reported_date_time)) %>%
   summarise(
     sightings_per_year = length(year_of_sighting),
-            .by = "year_of_sighting"
-    ) %>%
+    .by = "year_of_sighting"
+  ) %>%
   arrange(year_of_sighting)
 
 year_range = range(sights_per_year$year_of_sighting)
