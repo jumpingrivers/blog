@@ -30,7 +30,7 @@ sights_per_year %>%
   ggtitle("Yearly UFO sighting reports for Great Britain") +
   theme_minimal()
 # construct B-splines
-
+year_range = range(sights_per_year$year_of_sighting)
 B = bs(sights_per_year$year_of_sighting,
        knots = seq(from = year_range[1],
                    to = year_range[2],
