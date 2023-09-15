@@ -3,7 +3,6 @@ title: "Reporting on Mario Kart 64 World Records"
 author: "Myles Mitchell & Parisa Gregg"
 date: "14 June 2023"
 format: html
-jupyter: blog_env_github
 ---
 
 ## Rainbow Road
