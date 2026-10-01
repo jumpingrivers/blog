@@ -1,0 +1,38 @@
+◯ [tool call] ae_summary(arm = "Xanomeline High Dose", by = "term", top_n = 5L)
+● #> {"arm":"Xanomeline High Dose","subjects_in_arm":72,"by":"term","rows":[{"…
+◯ [tool call] ae_summary(arm = "Placebo", by = "term", top_n = 5L)
+● #> {"arm":"Placebo","subjects_in_arm":86,"by":"term","rows":[{"event":"DIARR…
+For **Xanomeline High Dose** (72 subjects in the safety population):
+- **Pruritus**: 25 subjects (34.7%)
+- **Application site pruritus**: 21 subjects (29.2%)
+- **Application site erythema**: 14 subjects (19.4%)
+- **Erythema**: 14 subjects (19.4%)
+- **Dizziness**: 10 subjects (13.9%)
+
+For **Placebo** (86 subjects in the safety population):
+- **Diarrhoea**: 9 subjects (10.5%)
+- **Erythema**: 8 subjects (9.3%)
+- **Pruritus**: 8 subjects (9.3%)
+- **Application site pruritus**: 6 subjects (7%)
+- **Upper respiratory tract infection**: 6 subjects (7%)
+◯ [tool call] list_arms()
+● #> [{"arm":"Placebo","subjects":86},{"arm":"Xanomeline High Dose","subjects"…
+◯ [tool call] count_subjects(arm = "Placebo", serious_only = TRUE)
+● #> {"arm":"Placebo","subjects_with_event":0,"subjects_in_arm":86,"percent":0…
+◯ [tool call] count_subjects(arm = "Xanomeline Low Dose", serious_only = TRUE)
+● #> {"arm":"Xanomeline Low Dose","subjects_with_event":2,"subjects_in_arm":96…
+◯ [tool call] count_subjects(arm = "Xanomeline High Dose", serious_only = TRUE)
+● #> {"arm":"Xanomeline High Dose","subjects_with_event":1,"subjects_in_arm":7…
+The number of subjects with at least one serious adverse event by treatment arm
+(safety population) is:
+
+- **Placebo**: 0 subjects out of 86 (0%)
+- **Xanomeline Low Dose**: 2 subjects out of 96 (2.1%)
+- **Xanomeline High Dose**: 1 subject out of 72 (1.4%)
+# A tibble: 4 × 5
+  input output cached_input cost       input_preview                            
+  <dbl>  <dbl>        <dbl> <ellmr_dl> <chr>                                    
+1   658     62            0 $0.00      Text[Which adverse events were most comm…
+2   976    193            0 $0.00      ToolResult, ToolResult                   
+3  1185     87            0 $0.00      Text[How many subjects had a serious adv…
+4  1451     83            0 $0.00      ToolResult, ToolResult, ToolResult, Tool…

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "trial-safety": {
+      "url": "http://127.0.0.1:9000/mcp"
+    }
+  }
+}

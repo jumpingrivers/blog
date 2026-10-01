@@ -1,0 +1,10 @@
+# Keys and local state stay out of git
+.Renviron
+.Rhistory
+.RData
+.Rproj.user/
+*.sqlite
+evals/logs/
+traces/
+mcp/R/
+rsconnect/

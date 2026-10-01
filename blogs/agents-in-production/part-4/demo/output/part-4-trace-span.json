@@ -1,0 +1,36 @@
+{
+  "attributes": [
+    {
+      "key": "gen_ai.operation.name",
+      "value": {
+        "stringValue": "execute_tool"
+      }
+    },
+    {
+      "key": "gen_ai.tool.name",
+      "value": {
+        "stringValue": "ae_summary"
+      }
+    },
+    {
+      "key": "gen_ai.tool.description",
+      "value": {
+        "stringValue": "List the most common treatment-emergent adverse events by preferred term or by body system, with subject counts and percentages."
+      }
+    },
+    {
+      "key": "gen_ai.tool.call.id",
+      "value": {
+        "stringValue": "ae_summary"
+      }
+    }
+  ],
+  "endTimeUnixNano": "1790582437679638200",
+  "flags": 1,
+  "kind": 1,
+  "name": "execute_tool ae_summary",
+  "parentSpanId": "625a448c5f1f1eb1",
+  "spanId": "3747305c44ec9c2d",
+  "startTimeUnixNano": "1790582437249745200",
+  "traceId": "9506f4ca193609be3d45eabf99f834bd"
+}

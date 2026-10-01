@@ -1,0 +1,27 @@
+> Write two sentences comparing pruritus on the high dose with placebo.
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "PRURITUS")
+< [tool request (count_subjects)]: count_subjects(arm = "Xanomeline High Dose",
+< term = "PRURITUS")
+[tool result  (count_subjects)]: {"arm":"Placebo","filters":{"serious_only":false,"term":"PRURITUS","body_system":"any"},"subjects_with_event":8,"subjects_in_arm":86,"percent":9.3}
+[tool result  (count_subjects)]: {"arm":"Xanomeline High Dose","filters":{"serious_only":false,"term":"PRURITUS","body_system":"any"},"subjects_with_event":25,"subjects_in_arm":72,"percent":34.7}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","filters":{"serious_only":false,"term":"PRURITUS","body_system":"any"},"subjects_with_event":8,"subjects_in_arm":86,"percent":9.3}
+> [tool result  (count_subjects)]: {"arm":"Xanomeline High 
+> Dose","filters":{"serious_only":false,"term":"PRURITUS","body_system":"any"},"subjects_with_event":25,"subjects_in_arm":72,"percent":34.7}
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", serious_only
+< = TRUE, term = "PRURITUS")
+< [tool request (count_subjects)]: count_subjects(arm = "Xanomeline High Dose",
+< serious_only = TRUE, ...)
+[tool result  (count_subjects)]: {"arm":"Placebo","filters":{"serious_only":true,"term":"PRURITUS","body_system":"any"},"subjects_with_event":0,"subjects_in_arm":86,"percent":0}
+[tool result  (count_subjects)]: {"arm":"Xanomeline High Dose","filters":{"serious_only":true,"term":"PRURITUS","body_system":"any"},"subjects_with_event":0,"subjects_in_arm":72,"percent":0}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","filters":{"serious_only":true,"term":"PRURITUS","body_system":"any"},"subjects_with_event":0,"subjects_in_arm":86,"percent":0}
+> [tool result  (count_subjects)]: {"arm":"Xanomeline High 
+> Dose","filters":{"serious_only":true,"term":"PRURITUS","body_system":"any"},"subjects_with_event":0,"subjects_in_arm":72,"percent":0}
+< Treatment-emergent pruritus was reported in 25 of 72 subjects (34.7%) 
+< receiving Xanomeline High Dose compared to 8 of 86 subjects (9.3%) in the 
+< placebo group. This represents a markedly higher incidence of pruritus in the
+< high-dose arm, although no cases were considered serious in either group 
+< (0.0%).
+NULL
