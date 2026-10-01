@@ -93,12 +93,23 @@ From R, use the HTTP server instead: {mcptools}' own client waits about four sec
 | `TRIAL_BLINDED` | `true` leaves the arm and the event dates out of patient records |
 | `TRIAL_AUDIT_DB` | The SQLite audit log; default `audit.sqlite` in the folder R runs in. On Posit Connect, a file in the content's folder is deleted when you redeploy, so use Postgres there: see `sql/audit-postgres.sql` |
 | `TRIAL_DEV_GROUPS` | Running locally, stands in for Connect's groups, e.g. `trial-reviewers`; ignored on Connect. Don't set it on any other server |
-| `APP_VERSION` | Recorded in every audit row; set it when you deploy |
+| `APP_VERSION` | Recorded in every audit row; default `dev`, so set it to the git commit when you deploy |
 | `TRIAL_MCP_AUDIENCE` | MCP server: recorded as the caller, e.g. the Connect group allowed to reach it |
 | `TRIAL_COMPARE_MODEL` | The second model for `evals/compare-models.R` |
 | `OTEL_TRACES_EXPORTER`, `OTEL_EXPORTER_OTLP_TRACES_FILE` | Send {ellmer}'s traces to a file, e.g. `otlp/file` and `traces/trace-%N.jsonl` |
 | `OTEL_TRACES_EXPORTER`, `OTEL_EXPORTER_OTLP_ENDPOINT` | To send {ellmer}'s traces to a tracing service instead of a file, set the exporter to `http` and point the endpoint at the service |
 | `OTEL_R_EMIT_SCOPES` | {shiny} and {httr2} can send spans too; set it to `ellmer` to keep only {ellmer}'s |
+
+### Moving the log to Postgres
+
+The R code is written for SQLite. We've run `sql/audit-postgres.sql` by hand on Postgres 16, but not the R code against it. To move the log to Postgres, `R/audit.R` needs four changes, which we haven't tested:
+
+1. **Connect differently.** In `audit_open()`, connect with `DBI::dbConnect(RPostgres::Postgres(), ...)`, reading the connection details from environment variables, and drop the `PRAGMA` and the `CREATE` statements. Create the table once with `sql/audit-postgres.sql`, as a role the app doesn't use.
+2. **Lock before reading the newest row.** In `audit_append()`, replace `BEGIN IMMEDIATE` with `BEGIN`, then run `SELECT pg_advisory_xact_lock(4711)` before reading the chain's head, as the SQL file's comments say.
+3. **Change the placeholders.** {RPostgres} uses `$1`, `$2` and so on, not `?`.
+4. **Quote the `user` column.** It's a reserved word in Postgres, so write `"user"` in the `INSERT`, as the SQL file does. SQLite accepts the quoted name too.
+
+Add {RPostgres} to the project with `renv::install("RPostgres")`, then `renv::snapshot()`.
 
 ## Moving the audit log to Postgres
 
