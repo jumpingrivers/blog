@@ -50,5 +50,5 @@ Rscript demo/part-1.R    # asks the questions from the post
 | `R/agent.R` | `make_agent()`: the chat, its system prompt and its tools |
 | `prompts/system.md` | The system prompt |
 | `demo/part-1.R` | The console demo from the post |
-| `demo/output/` | The transcripts quoted in the post |
+| `demo/output/` | The runs quoted in the post. The two answers without tools come from the 503 and 429 runs, which used an earlier version of the tools: their results don't list the filters yet |
 | `tests/` | Offline tests: every count is checked against numbers worked out by hand |

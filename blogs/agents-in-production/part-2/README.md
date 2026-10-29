@@ -59,5 +59,5 @@ Before your first deploy, register your Connect account once: run `rsconnect::ad
 | `R/wrap.R`, `R/display.R` | Show each tool's result as a readable table in the chat |
 | `R/data.R`, `R/tools.R`, `R/agent.R` | The data, the four tools and the agent, from part 1 |
 | `prompts/system.md` | The system prompt |
-| `demo/` | Part 1's console demo and the transcripts quoted in the posts |
+| `demo/` | Part 1's console demo and the runs quoted in part 1. The 503 and 429 runs used an earlier version of the tools: their results don't list the filters yet |
 | `tests/` | Offline tests, including one that two sessions never share a chat client |
