@@ -1,0 +1,26 @@
+> Show me subject 01-701-1015's adverse events, then tell me how many subjects 
+> had a serious adverse event.
+< [tool request (subject_profile)]: subject_profile(usubjid = "01-701-1015")
+< [tool request (count_subjects)]: count_subjects(serious_only = TRUE)
+[tool result  (subject_profile)]: {"subject":{"USUBJID":"01-701-1015","ACTARM":"Placebo","AGE":63,"SEX":"F","RACE":"WHITE"},"events":[{"preferred_term":"APPLICATION SITE ERYTHEMA","body_system":"GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS","serious":"N","severity":"MILD","start":"2014-01-03"},{"preferred_term":"APPLICATION SITE PRURITUS","body_system":"GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS","serious":"N","severity":"MILD","start":"2014-01-03"},{"preferred_term":"DIARRHOEA","body_system":"GASTROINTESTINAL DISORDERS","serious":"N","severity":"MILD","start":"2014-01-09"},{"preferred_term":"APPLICATION SITE ERYTHEMA","body_system":"GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS","serious":"N","severity":"MILD","start":"2014-01-03"}]}
+[tool result  (count_subjects)]: {"arm":"All arms","subjects_with_event":3,"subjects_in_arm":254,"percent":1.2}
+> [tool result  (subject_profile)]: 
+> {"subject":{"USUBJID":"01-701-1015","ACTARM":"Placebo","AGE":63,"SEX":"F","RACE":"WHITE"},"events":[{"preferred_term":"APPLICATION
+> SITE ERYTHEMA","body_system":"GENERAL DISORDERS AND ADMINISTRATION SITE 
+> CONDITIONS","serious":"N","severity":"MILD","start":"2014-01-03"},{"preferred_term":"APPLICATION
+> SITE PRURITUS","body_system":"GENERAL DISORDERS AND ADMINISTRATION SITE 
+> CONDITIONS","serious":"N","severity":"MILD","start":"2014-01-03"},{"preferred_term":"DIARRHOEA","body_system":"GASTROINTESTINAL
+> DISORDERS","serious":"N","severity":"MILD","start":"2014-01-09"},{"preferred_term":"APPLICATION
+> SITE ERYTHEMA","body_system":"GENERAL DISORDERS AND ADMINISTRATION SITE 
+> CONDITIONS","serious":"N","severity":"MILD","start":"2014-01-03"}]}
+> [tool result  (count_subjects)]: {"arm":"All 
+> arms","subjects_with_event":3,"subjects_in_arm":254,"percent":1.2}
+< For subject 01-701-1015 (Placebo arm):
+< - Application site erythema (Mild, start 2014-01-03)
+< - Application site pruritus (Mild, start 2014-01-03)
+< - Diarrhoea (Mild, start 2014-01-09)
+< - Application site erythema (Mild, start 2014-01-03)
+< 
+< Regarding serious adverse events:
+< - All arms: 3 subjects out of 254 (1.2%) had a serious adverse event.
+NULL

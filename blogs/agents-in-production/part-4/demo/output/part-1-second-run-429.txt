@@ -1,0 +1,220 @@
+Using model = "gemini-3.7-flash".
+Waiting 3s for retry backoff ■■■■■■■■■■■■■                   
+Waiting 3s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 12s for retry backoff ■■■■                            
+Waiting 12s for retry backoff ■■■■■■■■                        
+Waiting 12s for retry backoff ■■■■■■■■■■■■■■■■                
+Waiting 12s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
+Waiting 12s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 19s for retry backoff ■■■                             
+Waiting 19s for retry backoff ■■■■■■                          
+Waiting 19s for retry backoff ■■■■■■■■■■■                     
+Waiting 19s for retry backoff ■■■■■■■■■■■■■■■■                
+Waiting 19s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
+Waiting 19s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■       
+Waiting 19s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
+Waiting 19s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 49s for retry backoff ■■                              
+Waiting 49s for retry backoff ■■■                             
+Waiting 49s for retry backoff ■■■■■                           
+Waiting 49s for retry backoff ■■■■■■■                         
+Waiting 49s for retry backoff ■■■■■■■■■                       
+Waiting 49s for retry backoff ■■■■■■■■■■■                     
+Waiting 49s for retry backoff ■■■■■■■■■■■■                    
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■                  
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■                
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■              
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■            
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■          
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■       
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■     
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 49s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 60s for retry backoff ■                               
+Waiting 60s for retry backoff ■■■                             
+Waiting 60s for retry backoff ■■■■                            
+Waiting 60s for retry backoff ■■■■■■                          
+Waiting 60s for retry backoff ■■■■■■■                         
+Waiting 60s for retry backoff ■■■■■■■■■                       
+Waiting 60s for retry backoff ■■■■■■■■■■                      
+Waiting 60s for retry backoff ■■■■■■■■■■■■                    
+Waiting 60s for retry backoff ■■■■■■■■■■■■■                   
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■                 
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■                
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■              
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■             
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■          
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■       
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■     
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
+Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+In the **CDISC Pilot Study 01** (evaluating Xanomeline vs. Placebo in 
+Alzheimer's Disease), **25 subjects** in the **Xanomeline High Dose** treatment
+group experienced **Pruritus** (MedDRA Preferred Term: `PRURITUS`).
+
+### Context & Breakdown across Treatment Arms:
+* **Placebo** ($N = 86$): 5 subjects (5.8%)
+* **Xanomeline Low Dose** ($N = 84$): 18 subjects (21.4%)
+* **Xanomeline High Dose** ($N = 84$): **25 subjects (29.8%)**
+
+*(Source: CDISC SDTM/ADaM Pilot Project 01 Adverse Events Analysis Dataset, 
+`ADAE`)*
+Using model = "gemini-3.7-flash".
+> Which adverse events were most common on the high dose, compared with 
+> placebo?
+< [tool request (ae_summary)]: ae_summary(arm = "Xanomeline High Dose", by = 
+< "term", top_n = 10L)
+< [tool request (ae_summary)]: ae_summary(arm = "Placebo", by = "term", top_n =
+< 10L)
+[tool result  (ae_summary)]: {"arm":"Xanomeline High Dose","subjects_in_arm":72,"by":"term","rows":[{"event":"PRURITUS","subjects":25,"percent":34.7},{"event":"APPLICATION SITE PRURITUS","subjects":21,"percent":29.2},{"event":"APPLICATION SITE ERYTHEMA","subjects":14,"percent":19.4},{"event":"ERYTHEMA","subjects":14,"percent":19.4},{"event":"DIZZINESS","subjects":10,"percent":13.9},{"event":"APPLICATION SITE IRRITATION","subjects":9,"percent":12.5},{"event":"HYPERHIDROSIS","subjects":8,"percent":11.1},{"event":"RASH","subjects":8,"percent":11.1},{"event":"SINUS BRADYCARDIA","subjects":8,"percent":11.1},{"event":"APPLICATION SITE DERMATITIS","subjects":7,"percent":9.7}]}
+[tool result  (ae_summary)]: {"arm":"Placebo","subjects_in_arm":86,"by":"term","rows":[{"event":"DIARRHOEA","subjects":9,"percent":10.5},{"event":"ERYTHEMA","subjects":8,"percent":9.3},{"event":"PRURITUS","subjects":8,"percent":9.3},{"event":"APPLICATION SITE PRURITUS","subjects":6,"percent":7},{"event":"UPPER RESPIRATORY TRACT INFECTION","subjects":6,"percent":7},{"event":"APPLICATION SITE DERMATITIS","subjects":5,"percent":5.8},{"event":"RASH","subjects":5,"percent":5.8},{"event":"ELECTROCARDIOGRAM ST SEGMENT DEPRESSION","subjects":4,"percent":4.7},{"event":"MYOCARDIAL INFARCTION","subjects":4,"percent":4.7},{"event":"APPLICATION SITE ERYTHEMA","subjects":3,"percent":3.5}]}
+> [tool result  (ae_summary)]: {"arm":"Xanomeline High 
+> Dose","subjects_in_arm":72,"by":"term","rows":[{"event":"PRURITUS","subjects":25,"percent":34.7},{"event":"APPLICATION
+> SITE PRURITUS","subjects":21,"percent":29.2},{"event":"APPLICATION SITE 
+> ERYTHEMA","subjects":14,"percent":19.4},{"event":"ERYTHEMA","subjects":14,"percent":19.4},{"event":"DIZZINESS","subjects":10,"percent":13.9},{"event":"APPLICATION
+> SITE 
+> IRRITATION","subjects":9,"percent":12.5},{"event":"HYPERHIDROSIS","subjects":8,"percent":11.1},{"event":"RASH","subjects":8,"percent":11.1},{"event":"SINUS
+> BRADYCARDIA","subjects":8,"percent":11.1},{"event":"APPLICATION SITE 
+> DERMATITIS","subjects":7,"percent":9.7}]}
+> [tool result  (ae_summary)]: 
+> {"arm":"Placebo","subjects_in_arm":86,"by":"term","rows":[{"event":"DIARRHOEA","subjects":9,"percent":10.5},{"event":"ERYTHEMA","subjects":8,"percent":9.3},{"event":"PRURITUS","subjects":8,"percent":9.3},{"event":"APPLICATION
+> SITE PRURITUS","subjects":6,"percent":7},{"event":"UPPER RESPIRATORY TRACT 
+> INFECTION","subjects":6,"percent":7},{"event":"APPLICATION SITE 
+> DERMATITIS","subjects":5,"percent":5.8},{"event":"RASH","subjects":5,"percent":5.8},{"event":"ELECTROCARDIOGRAM
+> ST SEGMENT DEPRESSION","subjects":4,"percent":4.7},{"event":"MYOCARDIAL 
+> INFARCTION","subjects":4,"percent":4.7},{"event":"APPLICATION SITE 
+> ERYTHEMA","subjects":3,"percent":3.5}]}
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "DIZZINESS")
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "APPLICATION SITE IRRITATION")
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "HYPERHIDROSIS")
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "SINUS BRADYCARDIA")
+[tool result  (count_subjects)]: {"arm":"Placebo","subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+[tool result  (count_subjects)]: {"arm":"Placebo","subjects_with_event":3,"subjects_in_arm":86,"percent":3.5}
+[tool result  (count_subjects)]: {"arm":"Placebo","subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+[tool result  (count_subjects)]: {"arm":"Placebo","subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","subjects_with_event":3,"subjects_in_arm":86,"percent":3.5}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+Waiting 7s for retry backoff ■■■■■                           
+Waiting 7s for retry backoff ■■■■■■■■                        
+Waiting 7s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■          
+Waiting 7s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 15s for retry backoff ■■■                             
+Waiting 15s for retry backoff ■■■■■■■■■                       
+Waiting 15s for retry backoff ■■■■■■■■■■■■■■■                 
+Waiting 15s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
+Waiting 15s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
+Waiting 15s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 24s for retry backoff ■■■                             
+Waiting 24s for retry backoff ■■■■■■                          
+Waiting 24s for retry backoff ■■■■■■■■■■                      
+Waiting 24s for retry backoff ■■■■■■■■■■■■■■                  
+Waiting 24s for retry backoff ■■■■■■■■■■■■■■■■■■              
+Waiting 24s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
+Waiting 24s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■       
+Waiting 24s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   
+Waiting 24s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 45s for retry backoff ■■                              
+Waiting 45s for retry backoff ■■■■                            
+Waiting 45s for retry backoff ■■■■■■                          
+Waiting 45s for retry backoff ■■■■■■■■                        
+Waiting 45s for retry backoff ■■■■■■■■■■                      
+Waiting 45s for retry backoff ■■■■■■■■■■■■                    
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■                  
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■                
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■              
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■■■            
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■          
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■      
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
+Waiting 45s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 57s for retry backoff ■■                              
+Waiting 57s for retry backoff ■■■■                            
+Waiting 57s for retry backoff ■■■■■                           
+Waiting 57s for retry backoff ■■■■■■■                         
+Waiting 57s for retry backoff ■■■■■■■■                        
+Waiting 57s for retry backoff ■■■■■■■■■■                      
+Waiting 57s for retry backoff ■■■■■■■■■■■                     
+Waiting 57s for retry backoff ■■■■■■■■■■■■■                   
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■                 
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■                
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■              
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■             
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■         
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■      
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■     
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Waiting 57s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+Error in `req_perform_connection()`:
+! HTTP 429 Too Many Requests.
+ℹ You exceeded your current quota, please check your plan and billing details.
+  For more information on this error, head to:
+  https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current
+  usage, head to: https://ai.dev/rate-limit.  * Quota exceeded for metric:
+  generativelanguage.googleapis.com/generate_content_free_tier_requests, limit:
+  20, model: gemini-3.7-flash Please retry in 31.950750068s.
+Backtrace:
+     ▆
+  1. ├─base::source("demo/part-1.R")
+  2. │ ├─base::withVisible(eval(ei, envir))
+  3. │ └─base::eval(ei, envir)
+  4. │   └─base::eval(ei, envir)
+  5. └─chat$chat(...)
+  6.   └─coro::collect(...)
+  7.     └─coro:::reduce_steps(x, steps, along_builder(list()))
+  8.       └─coro:::reduce(x, reducer, .init = identity)
+  9.         └─coro:::reduce_impl(.x, .f, ..., .init = .init)
+ 10.           └─coro:::iter_reduce_impl(.x, .f, ..., .left = .left)
+ 11.             ├─coro::is_exhausted(new <- .x())
+ 12.             └─coro (local) .x()
+ 13.               └─base::evalq(...)
+ 14.                 └─base::evalq(...)
+ 15.                   └─base::evalq(...)
+ 16.                     └─base::evalq(...)
+ 17.                       ├─coro::is_exhausted(elt <- iterator())
+ 18.                       └─coro (local) iterator()
+ 19.                         └─base::evalq(...)
+ 20.                           └─base::evalq(...)
+ 21.                             └─base::evalq(...)
+ 22.                               └─base::evalq(...)
+ 23.                                 ├─coro::is_exhausted(elt <- iterator())
+ 24.                                 └─coro (local) iterator()
+ 25.                                   └─base::evalq(...)
+ 26.                                     └─base::evalq(...)
+ 27.                                       ├─base::evalq(...)
+ 28.                                       │ └─base::evalq(...)
+ 29.                                       │   └─coro (local) user(...)
+ 30.                                       │     ├─.last_value <<- eval_bare(substitute(expr), user_env)
+ 31.                                       │     │ └─rlang::env_poke(env, lhs, value, inherit = TRUE, create = FALSE)
+ 32.                                       │     └─rlang::eval_bare(substitute(expr), user_env)
+ 33.                                       └─httr2::req_perform_connection(req)
+ 34.                                         └─httr2:::handle_resp(req, resp)
+ 35.                                           └─httr2:::resp_failure_cnd(req, resp, error_call = error_call)
+ 36.                                             ├─rlang::catch_cnd(...)
+ 37.                                             │ ├─rlang::eval_bare(...)
+ 38.                                             │ ├─base::tryCatch(...)
+ 39.                                             │ │ └─base (local) tryCatchList(expr, classes, parentenv, handlers)
+ 40.                                             │ │   └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])
+ 41.                                             │ │     └─base (local) doTryCatch(return(expr), name, parentenv, handler)
+ 42.                                             │ └─base::force(expr)
+ 43.                                             └─rlang::abort(...)
+Execution halted

@@ -1,0 +1,104 @@
+> Which adverse events were most common on the high dose, compared with 
+> placebo?
+< [tool request (ae_summary)]: ae_summary(arm = "Xanomeline High Dose", by = 
+< "term", top_n = 10L)
+< [tool request (ae_summary)]: ae_summary(arm = "Placebo", by = "term", top_n =
+< 10L)
+[tool result  (ae_summary)]: {"arm":"Xanomeline High Dose","serious_only":false,"subjects_in_arm":72,"by":"term","rows":[{"event":"PRURITUS","subjects":25,"percent":34.7},{"event":"APPLICATION SITE PRURITUS","subjects":21,"percent":29.2},{"event":"APPLICATION SITE ERYTHEMA","subjects":14,"percent":19.4},{"event":"ERYTHEMA","subjects":14,"percent":19.4},{"event":"DIZZINESS","subjects":10,"percent":13.9},{"event":"APPLICATION SITE IRRITATION","subjects":9,"percent":12.5},{"event":"HYPERHIDROSIS","subjects":8,"percent":11.1},{"event":"RASH","subjects":8,"percent":11.1},{"event":"SINUS BRADYCARDIA","subjects":8,"percent":11.1},{"event":"APPLICATION SITE DERMATITIS","subjects":7,"percent":9.7}]}
+[tool result  (ae_summary)]: {"arm":"Placebo","serious_only":false,"subjects_in_arm":86,"by":"term","rows":[{"event":"DIARRHOEA","subjects":9,"percent":10.5},{"event":"ERYTHEMA","subjects":8,"percent":9.3},{"event":"PRURITUS","subjects":8,"percent":9.3},{"event":"APPLICATION SITE PRURITUS","subjects":6,"percent":7},{"event":"UPPER RESPIRATORY TRACT INFECTION","subjects":6,"percent":7},{"event":"APPLICATION SITE DERMATITIS","subjects":5,"percent":5.8},{"event":"RASH","subjects":5,"percent":5.8},{"event":"ELECTROCARDIOGRAM ST SEGMENT DEPRESSION","subjects":4,"percent":4.7},{"event":"MYOCARDIAL INFARCTION","subjects":4,"percent":4.7},{"event":"APPLICATION SITE ERYTHEMA","subjects":3,"percent":3.5}]}
+> [tool result  (ae_summary)]: {"arm":"Xanomeline High 
+> Dose","serious_only":false,"subjects_in_arm":72,"by":"term","rows":[{"event":"PRURITUS","subjects":25,"percent":34.7},{"event":"APPLICATION
+> SITE PRURITUS","subjects":21,"percent":29.2},{"event":"APPLICATION SITE 
+> ERYTHEMA","subjects":14,"percent":19.4},{"event":"ERYTHEMA","subjects":14,"percent":19.4},{"event":"DIZZINESS","subjects":10,"percent":13.9},{"event":"APPLICATION
+> SITE 
+> IRRITATION","subjects":9,"percent":12.5},{"event":"HYPERHIDROSIS","subjects":8,"percent":11.1},{"event":"RASH","subjects":8,"percent":11.1},{"event":"SINUS
+> BRADYCARDIA","subjects":8,"percent":11.1},{"event":"APPLICATION SITE 
+> DERMATITIS","subjects":7,"percent":9.7}]}
+> [tool result  (ae_summary)]: 
+> {"arm":"Placebo","serious_only":false,"subjects_in_arm":86,"by":"term","rows":[{"event":"DIARRHOEA","subjects":9,"percent":10.5},{"event":"ERYTHEMA","subjects":8,"percent":9.3},{"event":"PRURITUS","subjects":8,"percent":9.3},{"event":"APPLICATION
+> SITE PRURITUS","subjects":6,"percent":7},{"event":"UPPER RESPIRATORY TRACT 
+> INFECTION","subjects":6,"percent":7},{"event":"APPLICATION SITE 
+> DERMATITIS","subjects":5,"percent":5.8},{"event":"RASH","subjects":5,"percent":5.8},{"event":"ELECTROCARDIOGRAM
+> ST SEGMENT DEPRESSION","subjects":4,"percent":4.7},{"event":"MYOCARDIAL 
+> INFARCTION","subjects":4,"percent":4.7},{"event":"APPLICATION SITE 
+> ERYTHEMA","subjects":3,"percent":3.5}]}
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "DIZZINESS")
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "APPLICATION SITE IRRITATION")
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "HYPERHIDROSIS")
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", term = 
+< "SINUS BRADYCARDIA")
+[tool result  (count_subjects)]: {"arm":"Placebo","filters":{"serious_only":false,"term":"DIZZINESS","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+[tool result  (count_subjects)]: {"arm":"Placebo","filters":{"serious_only":false,"term":"APPLICATION SITE IRRITATION","body_system":"any"},"subjects_with_event":3,"subjects_in_arm":86,"percent":3.5}
+[tool result  (count_subjects)]: {"arm":"Placebo","filters":{"serious_only":false,"term":"HYPERHIDROSIS","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+[tool result  (count_subjects)]: {"arm":"Placebo","filters":{"serious_only":false,"term":"SINUS BRADYCARDIA","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","filters":{"serious_only":false,"term":"DIZZINESS","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","filters":{"serious_only":false,"term":"APPLICATION SITE 
+> IRRITATION","body_system":"any"},"subjects_with_event":3,"subjects_in_arm":86,"percent":3.5}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","filters":{"serious_only":false,"term":"HYPERHIDROSIS","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","filters":{"serious_only":false,"term":"SINUS 
+> BRADYCARDIA","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":86,"percent":2.3}
+< The most common adverse events in the **Xanomeline High Dose** arm (N=72) 
+< compared to the **Placebo** arm (N=86) were:
+< 
+< * **Pruritus**: 25 subjects (34.7%) on Xanomeline High Dose vs. 8 subjects 
+< (9.3%) on Placebo
+< * **Application site pruritus**: 21 subjects (29.2%) on Xanomeline High Dose 
+< vs. 6 subjects (7.0%) on Placebo
+< * **Application site erythema**: 14 subjects (19.4%) on Xanomeline High Dose 
+< vs. 3 subjects (3.5%) on Placebo
+< * **Erythema**: 14 subjects (19.4%) on Xanomeline High Dose vs. 8 subjects 
+< (9.3%) on Placebo
+< * **Dizziness**: 10 subjects (13.9%) on Xanomeline High Dose vs. 2 subjects 
+< (2.3%) on Placebo
+< * **Application site irritation**: 9 subjects (12.5%) on Xanomeline High Dose
+< vs. 3 subjects (3.5%) on Placebo
+< * **Hyperhidrosis**: 8 subjects (11.1%) on Xanomeline High Dose vs. 2 
+< subjects (2.3%) on Placebo
+< * **Rash**: 8 subjects (11.1%) on Xanomeline High Dose vs. 5 subjects (5.8%) 
+< on Placebo
+< * **Sinus bradycardia**: 8 subjects (11.1%) on Xanomeline High Dose vs. 2 
+< subjects (2.3%) on Placebo
+< * **Application site dermatitis**: 7 subjects (9.7%) on Xanomeline High Dose 
+< vs. 5 subjects (5.8%) on Placebo
+NULL> How many subjects had a serious adverse event, and on which arms?
+< [tool request (count_subjects)]: count_subjects(serious_only = TRUE)
+< [tool request (count_subjects)]: count_subjects(arm = "Placebo", serious_only
+< = TRUE)
+< [tool request (count_subjects)]: count_subjects(arm = "Xanomeline Low Dose", 
+< serious_only = TRUE)
+< [tool request (count_subjects)]: count_subjects(arm = "Xanomeline High Dose",
+< serious_only = TRUE)
+[tool result  (count_subjects)]: {"arm":"All arms","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":3,"subjects_in_arm":254,"percent":1.2}
+[tool result  (count_subjects)]: {"arm":"Placebo","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":0,"subjects_in_arm":86,"percent":0}
+[tool result  (count_subjects)]: {"arm":"Xanomeline Low Dose","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":96,"percent":2.1}
+[tool result  (count_subjects)]: {"arm":"Xanomeline High Dose","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":1,"subjects_in_arm":72,"percent":1.4}
+> [tool result  (count_subjects)]: {"arm":"All 
+> arms","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":3,"subjects_in_arm":254,"percent":1.2}
+> [tool result  (count_subjects)]: 
+> {"arm":"Placebo","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":0,"subjects_in_arm":86,"percent":0}
+> [tool result  (count_subjects)]: {"arm":"Xanomeline Low 
+> Dose","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":2,"subjects_in_arm":96,"percent":2.1}
+> [tool result  (count_subjects)]: {"arm":"Xanomeline High 
+> Dose","filters":{"serious_only":true,"term":"any","body_system":"any"},"subjects_with_event":1,"subjects_in_arm":72,"percent":1.4}
+< Across all arms, **3 subjects (1.2%)** out of 254 had a serious adverse 
+< event:
+< 
+< - **Placebo:** 0 subjects (0.0%) of 86
+< - **Xanomeline Low Dose:** 2 subjects (2.1%) of 96
+< - **Xanomeline High Dose:** 1 subject (1.4%) of 72
+NULL[1] $0.01
+# A tibble: 5 × 5
+  input output cached_input cost       input_preview                            
+  <dbl>  <dbl>        <dbl> <ellmr_dl> <chr>                                    
+1   658    151            0 $0.00      Text[Which adverse events were most comm…
+2  1265    173            0 $0.00      ToolResult, ToolResult                   
+3  1690    461            0 $0.00      ToolResult, ToolResult, ToolResult, Tool…
+4  2098    130            0 $0.00      Text[How many subjects had a serious adv…
+5  2473     99            0 $0.00      ToolResult, ToolResult, ToolResult, Tool…
